@@ -1,0 +1,18 @@
+.messagesPage {
+  padding: 10px;
+}
+
+.messagesContent {
+  display: grid;
+  grid-template-columns: 2fr 10fr;
+}
+
+.dialog a {
+  color: #54312f;
+  text-decoration: none;
+}
+
+.dialog a.activeDialog {
+  font-size: 20px;
+  font-weight: 600;
+}

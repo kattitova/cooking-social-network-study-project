@@ -1,0 +1,18 @@
+.avatar img {
+  width: 200px;
+}
+
+.userprofile {
+  display: flex;
+  padding: 10px;
+}
+
+.banner {
+  border-radius: 10px 10px 0 0;
+  height: 150px;
+  overflow: hidden;
+}
+
+.banner img {
+  width: 100%;
+}

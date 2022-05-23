@@ -1,24 +1,19 @@
 import React from "react";
+import styles from "./UserProfile.module.css";
 
-const ProfilePage = () => (
-  <div className="content">
-    <div className="banner">
+const UserProfile = () => (
+  <div>
+    <div className={styles.banner}>
       <img src="https://media.istockphoto.com/photos/assorted-raw-organic-vegetables-and-ingredients-for-healthy-cooking-picture-id495251194" />
-;
+      ;
     </div>
-    <div className="user-profile">
-      <div className="avatar">
+    <div className={styles.userprofile}>
+      <div className={styles.avatar}>
         <img src="https://cdni.iconscout.com/illustration/premium/thumb/woman-cooking-food-in-kitchen-4874541-4055255.png" />
       </div>
       <div>Info</div>
     </div>
-    <div>
-        Posts
-      <div>New post</div>
-      <div>Post 1</div>
-      <div>Post 2</div>
-    </div>
   </div>
 );
 
-export default ProfilePage;
+export default UserProfile;
