@@ -1,40 +1,49 @@
 import React from "react";
+import PropsType from "prop-types";
+
 import styles from "./MessagePage.module.css";
 import Dialog from "./Dialog/Dialog";
 import Message from "./Message/Message";
 
-const dialogsData = [
-  { id: 1, name: "User 1" },
-  { id: 2, name: "User 2" },
-  { id: 3, name: "User 3" },
-  { id: 4, name: "User 4" },
-  { id: 5, name: "User 5" },
-  { id: 6, name: "User 6" },
-];
+const MessagePage = (props) => {
+  const { state } = props;
+  const dialogsElements = state.dialogsData.map(user => <Dialog key={`dialog-${user.id}`} name={user.name} id={user.id} avatar={user.avatar} />);
 
-const messagesData = [
-  { id: 1, message: "Hi" },
-  { id: 2, message: "How are you?" },
-  { id: 3, message: "I am good" },
-];
+  // вся эта конструкция для добавления класса noTail, если в переписке идет несклько
+  // сообщений от одного пользователя, то у первых сообщений нет хвостика,
+  // а у последнего есть хвостик
+  const messagesElements = state.messagesData.map((mes, i) => {
+    const numElement = state.messagesData.length;
+    if (i + 1 < numElement) {
+      if (mes.sender === state.messagesData[i + 1].sender) {
+        return <Message key={`message-${mes.id}`} message={mes.message} sender={mes.sender} tail="noTail" />;
+      }
+    }
+    return <Message key={`message-${mes.id}`} message={mes.message} sender={mes.sender} tail="tail" />;
+  });
 
-const dialogsElements = dialogsData.map(user => <Dialog key={`dialog-${user.id}`} name={user.name} id={user.id} />);
-const messagesElements = messagesData.map(mes => <Message key={`message-${mes.id}`} message={mes.message} />);
+  // если хвостики пофиг, то можно просто так
+  /* const messagesElements = state.messagesData.map(mes => <Message key={`message-${mes.id}`} message={mes.message} sender={mes.sender} />); */
 
-const MessagePage = () => (
-  <div className={styles.messagesPage}>
-    <div className="pageTitle">
-      Message Page
-    </div>
-    <div className={styles.messagesContent}>
-      <div className={styles.dialogsBlock}>
-        { dialogsElements }
+  return (
+    <div className={styles.messagesPage}>
+      <div className="pageTitle">
+        Message Page
       </div>
-      <div className={styles.messagesBlock}>
-        { messagesElements }
+      <div className={styles.messagesContent}>
+        <div className={styles.dialogsBlock}>
+          {dialogsElements}
+        </div>
+        <div className={styles.messagesBlock}>
+          {messagesElements}
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
+
+MessagePage.propTypes = {
+  state: PropsType.objectOf(PropsType.object).isRequired,
+};
 
 export default MessagePage;

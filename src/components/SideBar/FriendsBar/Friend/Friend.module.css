@@ -1,0 +1,14 @@
+.friend {
+  text-align: center;
+}
+
+.avatar {
+  border: solid 2px rgb(136, 64, 1);
+  border-radius: 30px;
+  height: 50px;
+  width: 50px;
+}
+
+.name {
+  font-size: 12px;
+}

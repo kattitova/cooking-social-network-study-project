@@ -1,8 +1,5 @@
 .nav {
-  background-color: rgb(255, 232, 181);
-  border-radius: 10px;
-  grid-area: nav;
-  padding: 10px;
+  margin-bottom: 20px;
 }
 
 .item a {

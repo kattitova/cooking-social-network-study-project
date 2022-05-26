@@ -4,12 +4,15 @@ import PropTypes from "prop-types";
 import styles from "../MessagePage.module.css";
 
 const Dialog = (props) => {
-  const { name, id } = props;
+  const { name, id, avatar } = props;
   const path = `/messages/${id}`;
 
   return (
     <div className={styles.dialog}>
-      <NavLink to={path} activeClassName={styles.activeDialog}>{name}</NavLink>
+      <NavLink to={path} className={styles.dialogLink} activeClassName={styles.activeDialog}>
+        <img src={avatar} alt={name} />
+        {name}
+      </NavLink>
     </div>
   );
 };
@@ -17,6 +20,7 @@ const Dialog = (props) => {
 Dialog.propTypes = {
   name: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
+  avatar: PropTypes.string.isRequired,
 };
 
 export default Dialog;

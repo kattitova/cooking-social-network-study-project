@@ -1,11 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import { Router } from "react-router-dom";
-
 import App from "./components/app";
 import "./styles/styles.scss";
+import state from "./redux/state";
 
 ReactDOM.render((
-  <App />
+  <App state={state} />
 ), document.getElementById("root"));

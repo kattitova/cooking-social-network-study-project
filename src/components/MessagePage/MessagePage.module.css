@@ -1,18 +1,46 @@
 .messagesPage {
-  padding: 10px;
+  padding: 30px;
 }
 
 .messagesContent {
   display: grid;
-  grid-template-columns: 2fr 10fr;
+  grid-template-columns: 3fr 10fr;
+}
+
+.messagesBlock {
+  border: dashed 2px #f9d3b8;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
 }
 
 .dialog a {
   color: #54312f;
   text-decoration: none;
+  transition: font-size 0.5s linear;
 }
 
 .dialog a.activeDialog {
   font-size: 20px;
   font-weight: 600;
+}
+
+.dialogLink {
+  align-items: center;
+  display: flex;
+}
+
+.dialog a img {
+  border: solid 2px rgb(136, 64, 1);
+  border-radius: 30px;
+  height: 30px;
+  margin: 5px;
+  width: 30px;
+  transition: all 0.5s linear;
+}
+
+.dialog a.activeDialog img {
+  height: 50px;
+  width: 50px;
 }
